@@ -12,15 +12,15 @@ services:
     networks:
       macvlan:
         ipv4_address: 192.168.1.201
-      bridge:
-        ipv4_address: 172.23.0.2
+      nginx-bridge:
+
     restart: unless-stopped
 
 networks:
   macvlan:
     name: macvlan
     external: true
-  bridge:
+  nginx-bridge:
     name: nginx-bridge
     external: true
       
