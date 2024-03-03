@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  nginx-balancer:
+    container_name: nginx-balancer
+    image: nginx:1.25.4
+    volumes:
+      - /docker/nginx-balancer:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    networks:
+      macvlan:
+        ipv4_address: 192.168.1.201
+      default:
+    restart: unless-stopped
+
+networks:
+  macvlan:
+    name: macvlan
+    external: true
+      
