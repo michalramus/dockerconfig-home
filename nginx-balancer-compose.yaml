@@ -6,7 +6,7 @@ services:
     container_name: nginx-balancer
     image: nginx:1.25.4
     volumes:
-      - /docker/nginx-balancer:/etc/nginx/nginx.conf
+      - /docker/nginx-balancer:/etc/nginx
     ports:
       - "80:80"
     networks:
