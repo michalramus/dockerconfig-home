@@ -20,6 +20,6 @@ networks:
     name: macvlan
     external: true
   bridge:
-    name: bridge
+    name: nginx-bridge
     external: true
       
