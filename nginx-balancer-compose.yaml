@@ -12,11 +12,14 @@ services:
     networks:
       macvlan:
         ipv4_address: 192.168.1.201
-      default:
+      bridge:
     restart: unless-stopped
 
 networks:
   macvlan:
     name: macvlan
+    external: true
+  bridge:
+    name: bridge
     external: true
       
