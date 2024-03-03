@@ -9,7 +9,7 @@ services:
      POSTGRES_USER: ${DB_USERNAME}
      POSTGRES_DB: ${DB_DATABASE_NAME}
    volumes:
-     - /docker/postgres-immich:/var/lib/postgresql/data
+     - /docker/postgres-immich:/var/lib/postgresql
    networks:
      bridge:
    restart: always
