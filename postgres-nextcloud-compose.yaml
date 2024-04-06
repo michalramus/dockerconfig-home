@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  postgres-nextcloud:
+      container_name: postgres-grafana
+      image: postgres:16.2
+      restart: always
+      environment:
+        POSTGRES_DB: ${DB_DATABASE_NAME}
+        POSTGRES_USER: ${DB_USER}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+      volumes:
+        - /docker/postgres-nextcloud/data:/var/lib/postgresql/data
+      networks:
+        bridge:
+
+networks:
+  bridge:
+    name: nginx-bridge
+    external: true
