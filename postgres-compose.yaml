@@ -10,7 +10,7 @@ services:
         POSTGRES_USER: ${DB_USER}
         POSTGRES_PASSWORD: ${DB_PASSWORD}
       volumes:
-        - /docker/postgres-nextcloud/data:/var/lib/postgresql/data
+        - /docker/postgres/data:/var/lib/postgresql/data
       networks:
         bridge:
 
