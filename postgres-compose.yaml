@@ -1,8 +1,8 @@
 version: '3'
 services:
 
-  postgres-nextcloud:
-      container_name: postgres-grafana
+  postgres:
+      container_name: postgres
       image: postgres:16.2
       restart: always
       environment:
