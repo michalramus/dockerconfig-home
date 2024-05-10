@@ -3,7 +3,7 @@ services:
 
   postgres-grafana:
       container_name: postgres-grafana
-      image: postgres:16.2
+      image: postgres:16.3
       restart: always
       environment:
         POSTGRES_DB: ${DB_DATABASE_NAME}
