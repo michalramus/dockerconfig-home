@@ -3,7 +3,7 @@ services:
   minio:
     image: quay.io/minio/minio:RELEASE.2024-05-28T17-19-04Z
     volumes:
-      - /docker/cloudflare-ddns/config.json:/data
+      - /mnt/data/minio:/data
     ports:
       - 9000:9000
       - 9001:9001
