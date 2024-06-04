@@ -1,7 +1,7 @@
 version: '3'
 services:
   minio:
-    image: quay.io/minio/minio:RELEASE.2024-05-28T17-19-04Z
+    image: quay.io/minio/minio:RELEASE.2024-05-28T17-19-04Z-cpuv1
     volumes:
       - /mnt/data/minio:/data
     ports:
