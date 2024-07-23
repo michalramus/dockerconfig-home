@@ -7,6 +7,8 @@ services:
     image: nginx:1.27.0
     volumes:
       - /docker/nginx-balancer/nginx.conf:/etc/nginx/nginx.conf
+      - /docker/nginx-balancer/letsencrypt:/etc/letsencrypt:ro
+      - /docker/nginx-balancer/acme_challenge:/tmp/acme-challenge
     networks:
       macvlan:
         ipv4_address: 192.168.1.201
