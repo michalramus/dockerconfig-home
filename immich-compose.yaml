@@ -19,6 +19,7 @@ services:
       - /docker/storage/immich:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     environment:
+      DB_DATABASE_NAME: ${DB_DATABASE_NAME}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_HOSTNAME: ${DB_HOSTNAME}
