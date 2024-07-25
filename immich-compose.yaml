@@ -19,10 +19,10 @@ services:
       - /docker/storage/immich:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - DB_USERNAME: ${DB_USERNAME}
-      - DB_PASSWORD: ${DB_PASSWORD}
-      - DB_HOSTNAME: ${DB_HOSTNAME}
-      - DB_PORT: ${DB_PORT}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOSTNAME: ${DB_HOSTNAME}
+      DB_PORT: ${DB_PORT}
     ports:
       - 2283:3001
     depends_on:
