@@ -24,6 +24,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_HOSTNAME: ${DB_HOSTNAME}
       DB_PORT: ${DB_PORT}
+      IMMICH_LOG_LEVEL: ${IMMICH_LOG_LEVEL}
     ports:
       - 2283:3001
     depends_on:
