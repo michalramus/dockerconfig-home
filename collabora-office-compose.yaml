@@ -5,6 +5,8 @@ services:
     container_name: collabora-office
     image: collabora/code:24.04.6.1.1
     environment:
+      aliasgroup1: "https://.*:443"
+      aliasgroup2: "https://.*:80"
     ports:
       - 9980:9980
     networks:
