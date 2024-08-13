@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  collabora-office:
+    container_name: collabora-office
+    image: collabora/code:24.04.6.1.1
+    environment:
+    ports:
+      - 9980:9980
+    networks:
+      nginx-bridge:
+
+    restart: unless-stopped
+
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
+      
