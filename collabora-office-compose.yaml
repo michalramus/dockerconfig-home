@@ -7,6 +7,7 @@ services:
     environment:
       aliasgroup1: "https://.*:443"
       aliasgroup2: "https://.*:80"
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=true
     ports:
       - 9980:9980
     networks:
