@@ -10,8 +10,8 @@ services:
       - dictionaries=pl-PL de-DE en-US en-GB
     cap_add:
       - MKNOD
-      - SYS_CHROOT
-      - FOWNER
+      # - SYS_CHROOT
+      # - FOWNER
     ports:
       - 9980:9980
     networks:
