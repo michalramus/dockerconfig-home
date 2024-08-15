@@ -9,6 +9,10 @@ services:
       # aliasgroup2: "https://.*:80"
       - domain=nextcloud.ramus.ovh
       - extra_params=--o:ssl.enable=false --o:ssl.termination=true
+    cap_add:
+      - MKNOD
+      - SYS_CHROOT
+      - FOWNER
     ports:
       - 9980:9980
     networks:
