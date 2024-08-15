@@ -5,11 +5,9 @@ services:
     container_name: collabora-office
     image: collabora/code:24.04.6.1.1
     environment:
-      # aliasgroup1: "https://.*:443"
-      # aliasgroup2: "https://.*:80"
       - domain=nextcloud.ramus.ovh
       - extra_params=--o:ssl.enable=false --o:ssl.termination=true
-      - dictionaries=pl-PL
+      - dictionaries=pl-PL de-DE en-US en-GB
     cap_add:
       - MKNOD
       - SYS_CHROOT
