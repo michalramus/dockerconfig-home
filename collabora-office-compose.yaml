@@ -9,7 +9,7 @@ services:
       # aliasgroup2: "https://.*:80"
       - domain=nextcloud.ramus.ovh
       - extra_params=--o:ssl.enable=false --o:ssl.termination=true
-      - dictionaries=de en es pl
+      - dictionaries=pl-PL
     cap_add:
       - MKNOD
       - SYS_CHROOT
