@@ -14,8 +14,6 @@ services:
       - MKNOD
       - SYS_CHROOT
       - FOWNER
-    volumes:
-      - /docker/collabora:/opt/cool/systemplate
     ports:
       - 9980:9980
     networks:
