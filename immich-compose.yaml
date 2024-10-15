@@ -26,7 +26,7 @@ services:
       DB_PORT: ${DB_PORT}
       IMMICH_LOG_LEVEL: ${IMMICH_LOG_LEVEL}
     ports:
-      - 2283:3001
+      - 2283:2283
     depends_on:
       - redis
     networks:
