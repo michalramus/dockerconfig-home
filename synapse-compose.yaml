@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  synapse:
+    image: ghcr.io/element-hq/synapse:latest
+    restart: unless-stopped
+    volumes:
+      - /docker/storage/synapse:/data:rw
+      - /docker/synapse:/config:rw
+    environment:
+      SYNAPSE_DATA_DIR: /data
+      SYNAPSE_CONFIG_DIR: /config
+      SYNAPSE_CONFIG_FILE: /config/homeserver.yaml
+    networks:
+      nginx-bridge:
+
+
+  networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
