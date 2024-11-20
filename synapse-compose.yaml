@@ -1,11 +1,11 @@
 version: '3.9'
 services:
   synapse:
-    image: ghcr.io/element-hq/synapse:latest
+    image: ghcr.io/element-hq/synapse:v1.119.0
     restart: unless-stopped
     volumes:
       - /docker/storage/synapse:/data:rw
-      - /docker/synapse:/config:rw
+      - /docker/synapse:/config:ro
     environment:
       SYNAPSE_DATA_DIR: /data
       SYNAPSE_CONFIG_DIR: /config
