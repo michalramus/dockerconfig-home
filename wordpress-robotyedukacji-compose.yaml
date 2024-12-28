@@ -1,0 +1,14 @@
+version: '3'
+services:
+  wordpress-robotyedukacji:
+    image: wordpress:php8.3-apache
+    restart: always
+    networks:
+      nginx-bridge:
+    volumes:
+      - /docker/wordpress/roboty-edukacji.pl:/var/www/html
+
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
