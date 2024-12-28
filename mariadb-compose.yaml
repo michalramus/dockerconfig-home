@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mariadb:
+      container_name: mariadb
+      image: mariadb:11.6.2-ubi9
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      volumes:
+        - /docker/mariadb:/var/lib/mysql
+      networks:
+        bridge:
+
+networks:
+  bridge:
+    name: nginx-bridge
+    external: true
