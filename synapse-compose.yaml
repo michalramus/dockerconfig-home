@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   synapse:
-    image: ghcr.io/element-hq/synapse:v1.121.1
+    image: ghcr.io/element-hq/synapse:v1.122.0
     restart: unless-stopped
     volumes:
       - /docker/storage/synapse:/data:rw
