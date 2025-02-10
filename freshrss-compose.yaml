@@ -14,7 +14,7 @@ services:
       - /docker/freshrss/data:/var/www/FreshRSS/data
       - /docker/freshrss/extensions:/var/www/FreshRSS/extensions
     networks:
-      bridge:
+      nginx-bridge:
 
 networks:
   nginx-bridge:
