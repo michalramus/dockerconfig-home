@@ -12,6 +12,8 @@ services:
       - POSTGRES_HOSTNAME=${DB_HOSTNAME}
     volumes:
       - /docker/gatus:/config
+    networks:
+      nginx-bridge:
       
 networks:
   nginx-bridge:
