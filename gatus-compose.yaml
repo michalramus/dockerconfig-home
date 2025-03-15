@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   gatus:
-    image: twinproduction/gatus:latest
+    image: twinproduction/gatus:v5.16.0
     restart: always
     ports:
       - "8080:8080"
