@@ -9,6 +9,7 @@ services:
       - POSTGRES_USER=${DB_USERNAME} 
       - POSTGRES_PASSWORD=${DB_PASSWORD} 
       - POSTGRES_DB=${DB_DATABASE_NAME}
+      - POSTGRES_HOSTNAME=${DB_HOSTNAME}
     volumes:
       - /docker/gatus:/config
       
