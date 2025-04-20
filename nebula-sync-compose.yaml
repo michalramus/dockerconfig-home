@@ -11,3 +11,4 @@ services:
       CRON: "*/15 * * * *"
       TZ: "Europe/Warsaw"
       CLIENT_SKIP_TLS_VERIFICATION: "true"
+    restart: unless-stopped
