@@ -32,7 +32,7 @@ services:
     networks:
       nginx-bridge:
       immich-bridge:
-    restart: always
+    restart: unless-stopped
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -46,7 +46,7 @@ services:
       - /docker/immich/cache:/cache
     networks:
       immich-bridge:
-    restart: always
+    restart: unless-stopped
 
   redis:
     container_name: immich_redis
@@ -55,7 +55,7 @@ services:
       test: redis-cli ping || exit 1
     networks:
       immich-bridge:
-    restart: always
+    restart: unless-stopped
 
   immich-database:
     container_name: immich_postgres
@@ -90,7 +90,7 @@ services:
         "-c",
         "wal_compression=on"
       ]
-    restart: always
+    restart: unless-stopped
 
 networks:
   nginx-bridge:
