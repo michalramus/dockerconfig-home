@@ -5,7 +5,7 @@ services:
     image: docker.io/library/redis:7
     container_name: paperless-redis
     networks:
-      - paperless-bridge
+      paperless-bridge:
     volumes:
       -  /docker/paperless/redis:/data
     restart: unless-stopped
@@ -18,8 +18,8 @@ services:
       - gotenberg
       - tika
     networks:
-      - nginx-bridge
-      - paperless-bridge
+      nginx-bridge:
+      paperless-bridge:
     volumes:
       - /docker/paperless/data:/usr/src/paperless/data
       - /docker/storage/paperless:/usr/src/paperless/media
@@ -51,7 +51,7 @@ services:
     image: docker.io/gotenberg/gotenberg:8.19
     container_name: paperless-gotenberg
     networks:
-      - paperless-bridge
+      paperless-bridge:
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.
     command:
@@ -64,7 +64,7 @@ services:
     image: docker.io/apache/tika:3.1.0.0-full
     container_name: paperless-tika
     networks:
-      - paperless-bridge
+      paperless-bridge:
     restart: unless-stopped
 
   networks:
