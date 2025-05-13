@@ -48,7 +48,7 @@ services:
     restart: unless-stopped
 
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.19
+    image: docker.io/gotenberg/gotenberg:8.20
     container_name: paperless-gotenberg
     networks:
       paperless-bridge:
