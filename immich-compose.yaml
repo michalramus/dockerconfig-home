@@ -25,8 +25,8 @@ services:
       DB_HOSTNAME: ${DB_HOSTNAME}
       DB_PORT: ${DB_PORT}
       IMMICH_LOG_LEVEL: ${IMMICH_LOG_LEVEL}
-    ports:
-      - 2283:2283
+    # ports:
+    #   - 2283:2283
     depends_on:
       - redis
     networks:
