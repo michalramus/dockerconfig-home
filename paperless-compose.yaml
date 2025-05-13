@@ -17,8 +17,6 @@ services:
       - redis
       - gotenberg
       - tika
-    ports:
-      - "8000:8000"
     networks:
       - nginx-bridge
       - paperless-bridge
