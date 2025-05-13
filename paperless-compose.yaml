@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  redis:
+    image: docker.io/library/redis:7
+    container_name: paperless-redis
+    networks:
+      - paperless-bridge
+    volumes:
+      -  /docker/paperless/redis:/data
+    restart: unless-stopped
+
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    container_name: paperless
+    depends_on:
+      - redis
+      - gotenberg
+      - tika
+    ports:
+      - "8000:8000"
+    networks:
+      - nginx-bridge
+      - paperless-bridge
+    volumes:
+      - /docker/paperless/data:/usr/src/paperless/data
+      - /docker/storage/paperless:/usr/src/paperless/media
+      # - ./export:/usr/src/paperless/export     #paperless Exporter path https://docs.paperless-ngx.com/administration/#exporter
+      #- ./consume:/usr/src/paperless/consume     # paperless consumer directory path
+    environment:
+      PAPERLESS_REDIS: redis://redis:6379
+      PAPERLESS_DBHOST: ${DB_HOSTNAME}
+      PAPERLESS_DBPORT: ${DB_PORT}
+      PAPERLESS_DBNAME: ${DB_DATABASE_NAME}
+      PAPERLESS_DBUSER: ${DB_USER}
+      PAPERLESS_DBPASS: ${DB_PASSWORD}
+      PAPERLESS_TIKA_ENABLED: 1
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
+      PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_URL: https://paperless.ramus.ovh
+      PAPERLESS_SECRET_KEY: ${PAPERLESS_SECRET_KEY}
+      PAPERLESS_TIME_ZONE: Europe/Warsaw
+      PAPERLESS_OCR_LANGUAGE: pol
+      PAPERLESS_OCR_LANGUAGES: pol eng
+      #The UID and GID of the user used to run paperless in the container. Set this
+      # to your UID and GID on the host so that you have write access to the
+      # consumption directory.
+      #USERMAP_UID: 1000
+      #USERMAP_GID: 1000
+    restart: unless-stopped
+
+  gotenberg:
+    image: docker.io/gotenberg/gotenberg:8.19
+    container_name: paperless-gotenberg
+    networks:
+      - paperless-bridge
+    # The gotenberg chromium route is used to convert .eml files. We do not
+    # want to allow external content like tracking pixels or even javascript.
+    command:
+      - "gotenberg"
+      - "--chromium-disable-javascript=true"
+      - "--chromium-allow-list=file:///tmp/.*"
+    restart: unless-stopped
+
+  tika:
+    image: docker.io/apache/tika:3.1.0.0-full
+    container_name: paperless-tika
+    networks:
+      - paperless-bridge
+    restart: unless-stopped
+
+  networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
+  paperless-bridge:
+    driver: bridge
