@@ -68,8 +68,8 @@ services:
     restart: unless-stopped
 
   networks:
-  nginx-bridge:
-    name: nginx-bridge
-    external: true
-  paperless-bridge:
-    driver: bridge
+    nginx-bridge:
+      name: nginx-bridge
+      external: true
+    paperless-bridge:
+      driver: bridge
