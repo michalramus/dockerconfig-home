@@ -40,6 +40,7 @@ services:
       PAPERLESS_TIME_ZONE: Europe/Warsaw
       PAPERLESS_OCR_LANGUAGE: pol
       PAPERLESS_OCR_LANGUAGES: pol eng
+      PAPERLESS_FILENAME_FORMAT: "{{ created_year }}/{{ correspondent }}/{{ title }} {{ tag_list }}"
       #The UID and GID of the user used to run paperless in the container. Set this
       # to your UID and GID on the host so that you have write access to the
       # consumption directory.
