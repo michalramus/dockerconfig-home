@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  server:
+    image: codeberg.org/forgejo/forgejo:11-rootless
+    container_name: forgejo
+    user: "1024:1024"
+    environment:
+      - FORGEJO__database__DB_TYPE=postgres
+      - FORGEJO__database__HOST=${DB_HOSTNAME}:5432
+      - FORGEJO__database__NAME=${DB_DATABASE_NAME}
+      - FORGEJO__database__USER=${DB_USERNAME} 
+      - FORGEJO__database__PASSWD=${DB_PASSWORD} 
+    
+    networks:
+      - forgejo
+      - nginx-bridge
+    volumes:
+      - /docker/storage/forgejo:/var/lib/gitea
+      - /docker/forgejo/conf:/etc/gitea
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: 'unless-stopped'
+
+  docker-in-docker:
+    image: docker:dind
+    container_name: 'forgejo-docker_dind'
+    privileged: 'true'
+    command: ['dockerd', '-H', 'tcp://0.0.0.0:2375', '--tls=false']
+    networks:
+      - forgejo
+    restart: 'unless-stopped'
+
+  runner:
+    image: 'data.forgejo.org/forgejo/runner:4.0.0'
+    container_name: 'forgejo-runner'
+    links:
+      - docker-in-docker
+    depends_on:
+      docker-in-docker:
+        condition: service_started
+    environment:
+      DOCKER_HOST: tcp://docker-in-docker:2375
+    user: 1001:1001 
+    networks:
+      - forgejo
+    volumes:
+      - /docker/forgejo/runner:/data
+    command: '/bin/sh -c "while : ; do sleep 1 ; done ;"'
+    #TODO
+    # command: '/bin/sh -c "sleep 5; forgejo-runner daemon"'
+    restart: 'unless-stopped'
+
+networks:
+  forgejo:
+    external: false
+    driver: bridge
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
