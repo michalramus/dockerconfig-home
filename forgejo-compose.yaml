@@ -18,6 +18,7 @@ services:
     volumes:
       - /docker/storage/forgejo:/var/lib/gitea
       - /docker/forgejo/conf:/etc/gitea
+      - /docker/forgejo/log:/var/lib/gitea/data/log
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     restart: 'unless-stopped'
