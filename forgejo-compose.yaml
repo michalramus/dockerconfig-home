@@ -47,9 +47,8 @@ services:
       - forgejo
     volumes:
       - /docker/forgejo/runner:/data
-    command: '/bin/sh -c "while : ; do sleep 1 ; done ;"'
-    #TODO
-    # command: '/bin/sh -c "sleep 5; forgejo-runner daemon"'
+    # command: '/bin/sh -c "while : ; do sleep 1 ; done ;"'   #Do nothing command - register runner first
+    command: '/bin/sh -c "sleep 5; forgejo-runner daemon"'
     restart: 'unless-stopped'
 
 networks:
