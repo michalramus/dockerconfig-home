@@ -4,7 +4,7 @@ services:
     image: jellyfin/jellyfin:2025062305
     container_name: jellyfin
     user: uid:gid
-    network_mode: 'host'
+    # network_mode: 'host'
     volumes:
       - /docker/jellyfin/config:/config
       - /docker/jellyfin/cache:/cache
@@ -17,9 +17,9 @@ services:
       #   source: /path/to/fonts
       #   target: /usr/local/share/fonts/custom
       #   read_only: true
-    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     networks:
       nginx-bridge:
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     # extra_hosts:
     #   - 'host.docker.internal:host-gateway'
     restart: 'unless-stopped'
