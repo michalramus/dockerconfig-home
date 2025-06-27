@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:2025062305
+    container_name: jellyfin
+    user: uid:gid
+    network_mode: 'host'
+    volumes:
+      - /docker/jellyfin/config:/config
+      - /docker/jellyfin/cache:/cache
+      - type: bind
+        source: /docker/storage/jellyfin
+        target: /media
+        # read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      # - type: bind
+      #   source: /path/to/fonts
+      #   target: /usr/local/share/fonts/custom
+      #   read_only: true
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    networks:
+      nginx-bridge:
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    restart: 'unless-stopped'
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
