@@ -1,0 +1,25 @@
+services:
+  qbit:
+    image: linuxserver/qbittorrent:5.1.1
+    container_name: qbit
+    ports:
+      - '6881:6881'
+      - '6881:6881/udp'
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK_SET=022
+      - TZ=Europe/Warsaw
+      - WEBUI_PORT=8080
+      - DOCKER_MODS=ghcr.io/vuetorrent/vuetorrent-lsio-mod:sha-0c042a3
+    volumes:
+      - /docker/qbittorrent:/config
+      - /docker/storage/jellyfin:/jellyfin
+    networks:
+      nginx-bridge:
+    restart: unless-stopped
+
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
