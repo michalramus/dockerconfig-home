@@ -1,6 +1,6 @@
 services:
   qbit:
-    image: linuxserver/qbittorrent:5.1.1
+    image: linuxserver/qbittorrent:5.1.0
     container_name: qbit
     ports:
       - '6881:6881'
