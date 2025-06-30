@@ -23,7 +23,7 @@ services:
 
   radarr: #TODO (port 7878)
     container_name: radarr
-    image: lscr.io/linuxserver/radarr:5.24.1
+    image: lscr.io/linuxserver/radarr:5.26.2
     networks:
       nginx-bridge:
     environment:
