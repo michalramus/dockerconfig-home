@@ -109,6 +109,18 @@ services:
     # extra_hosts:
     #   - 'host.docker.internal:host-gateway'
     restart: 'unless-stopped'
+
+  flaresolverr:
+    image: flaresolverr/flaresolverr:v3.3.25
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - TZ=Europe/Warsaw
+    networks:
+      nginx-bridge:
+    restart: unless-stopped
   
 networks:
   nginx-bridge:
