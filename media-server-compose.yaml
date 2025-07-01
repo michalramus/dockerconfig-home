@@ -21,7 +21,7 @@ services:
       nginx-bridge:
     restart: unless-stopped
 
-  radarr: #TODO (port 7878)
+  radarr:
     container_name: radarr
     image: lscr.io/linuxserver/radarr:5.26.2
     networks:
@@ -29,13 +29,13 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=CET
+      - TZ=Europe/Warsaw
     volumes:
       - /docker/radarr:/config
       - /docker/storage/jellyfin:/jellyfin
     restart: "unless-stopped"
 
-  sonarr: #TODO (port 8989)
+  sonarr:
     image: linuxserver/sonarr:4.0.15
     container_name: sonarr
     networks:
@@ -43,13 +43,13 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=CET
+      - TZ=Europe/Warsaw
     volumes:
       - /docker/sonarr:/config
       - /docker/storage/jellyfin:/jellyfin
     restart: unless-stopped
 
-  prowlarr: #TODO (port 9696)
+  prowlarr:
     container_name: prowlarr
     image: linuxserver/prowlarr:1.37.0
     networks:               
@@ -57,26 +57,26 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=CET
+      - TZ=Europe/Warsaw
     volumes:
       - /docker/powlarr:/config
     restart: unless-stopped
 
-  recommendarr: #TODO (port 80)
-    container_name: recommendarr
-    image: tannermiddleton/recommendarr:v1.4.4
-    networks:
-      nginx-bridge:
-    environment:
-      - NODE_ENV=production
-      - DOCKER_ENV=true
-      - PORT=80
-      - PUBLIC_URL=https://recommendarr.ramus.ovh
-    volumes:
-      - /docker/recommendarr:/app/server/data
-    restart: unless-stopped
+  # recommendarr: 
+  #   container_name: recommendarr
+  #   image: tannermiddleton/recommendarr:v1.4.4
+  #   networks:
+  #     nginx-bridge:
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DOCKER_ENV=true
+  #     - PORT=80
+  #     - PUBLIC_URL=https://recommendarr.ramus.ovh
+  #   volumes:
+  #     - /docker/recommendarr:/app/server/data
+  #   restart: unless-stopped
 
-  jellyseerr: #TODO (port 5055)
+  jellyseerr:
     image: fallenbagel/jellyseerr:2.7.0
     container_name: jellyseerr
     networks:
@@ -84,7 +84,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=CET
+      - TZ=Europe/Warsaw
     volumes:
       - /docker/jellyseerr:/app/config
     restart: unless-stopped
