@@ -2,7 +2,7 @@ version: "3.9"
 services:
 
   qBittorrent:
-    image: linuxserver/qbittorrent:5.1.0
+    image: linuxserver/qbittorrent:5.1.2
     container_name: qBittorrent
     ports:
       - '6881:6881'
