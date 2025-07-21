@@ -40,6 +40,7 @@ services:
       PAPERLESS_TIME_ZONE: Europe/Warsaw
       PAPERLESS_OCR_LANGUAGE: pol
       PAPERLESS_OCR_LANGUAGES: pol eng
+      PAPERLESS_DATE_ORDER: D,M,Y
       PAPERLESS_FILENAME_FORMAT: "{{ created_year }}/{{ correspondent }}/{{ title }} {{ tag_list }}"
       PAPERLESS_OCR_USER_ARGS: '{"continue_on_soft_render_error": true}'
       #The UID and GID of the user used to run paperless in the container. Set this
