@@ -4,6 +4,8 @@
     "config:recommended"
   ],
   "docker-compose": {
-    "fileMatch": ["\\-compose.ya?ml$"]
+    "managerFilePatterns": [
+      "/\\-compose.ya?ml$/"
+    ]
   }
 }
