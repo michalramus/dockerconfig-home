@@ -61,7 +61,6 @@ services:
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=file:///tmp/.*"
       - "--api-timeout=400s"
-      - "--libreoffice-timeout=400s"
       - "--log-level=info"
     restart: unless-stopped
 
