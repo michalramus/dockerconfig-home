@@ -61,6 +61,7 @@ services:
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=file:///tmp/.*"
       - "--api-timeout=120s"
+      - "--log-level=debug"
     restart: unless-stopped
 
   tika:
