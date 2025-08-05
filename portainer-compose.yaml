@@ -11,7 +11,7 @@ services:
      
     networks:
       macvlan:
-        ipv4_address: 192.168.1.21
+        ipv4_address: 10.203.32.70
     environment:
       TZ: 'Europe/Warsaw'
     

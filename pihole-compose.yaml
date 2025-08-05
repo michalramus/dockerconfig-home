@@ -13,7 +13,7 @@ services:
     #   - "80:80/tcp"
     networks:
       macvlan:
-        ipv4_address: 192.168.1.18
+        ipv4_address: 10.203.32.51
     environment:
       TZ: 'Europe/Warsaw'
       # WEBPASSWORD: 'set a secure password here or it will be random'
