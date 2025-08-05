@@ -3,7 +3,7 @@ version: "3"
 services:
   portainer:
     container_name: portainer
-    image: portainer/portainer-ce:latest
+    image: portainer/portainer-ce:2.32.0-alpine
 
     ports:
       - "8000:8000/tcp"
@@ -26,3 +26,4 @@ networks:
   macvlan:
     name: macvlan
     external: true
+
