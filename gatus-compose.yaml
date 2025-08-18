@@ -2,7 +2,7 @@ version: "3.9"
 services:
   gatus:
     container_name: gatus
-    image: twinproduction/gatus:v5.22.0
+    image: twinproduction/gatus:v5.23.0
     restart: always
     environment:
       - POSTGRES_USER=${DB_USERNAME} 
