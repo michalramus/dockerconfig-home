@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  audiobookshelf:
+    container_name: audiobookshelf-server
+    image: ghcr.io/advplyr/audiobookshelf:2.29.0
+    #ports:
+    #  - 13378:80
+    volumes:
+      - /docker/storage/audiobookshelf/audiobooks:/audiobooks
+      - /docker/storage/audiobookshelf/podcasts:/podcasts
+      - /docker/audiobookshelf/config:/config
+      - /docker/audiobookshelf/metadata:/metadata
+    networks:
+      nginx-bridge:
+    restart: unless-stopped
+
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
