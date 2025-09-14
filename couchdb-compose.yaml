@@ -4,13 +4,17 @@ services:
   couchdb:
     image: couchdb:3.5.0
     container_name: couchdb
-    user: 5984:5984
     environment:
       - COUCHDB_USER=${DB_USERNAME}  #Please change as you like.
       - COUCHDB_PASSWORD=${DB_PASSWORD} #Please change as you like.
     volumes:
       - /docker/couchdb/data:/opt/couchdb/data
       - docker/couchdb/etc:/opt/couchdb/etc/local.d
-    ports:
-      - 5984:5984
+    networks:
+      nginx-bridge:
     restart: unless-stopped
+    
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
