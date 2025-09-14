@@ -9,7 +9,7 @@ services:
       - COUCHDB_PASSWORD=${DB_PASSWORD} #Please change as you like.
     volumes:
       - /docker/couchdb/data:/opt/couchdb/data
-      - docker/couchdb/etc:/opt/couchdb/etc/local.d
+      - /docker/couchdb/etc:/opt/couchdb/etc/local.d
     networks:
       nginx-bridge:
     restart: unless-stopped
