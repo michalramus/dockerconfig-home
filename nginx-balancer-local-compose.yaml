@@ -4,7 +4,7 @@ services:
 
   nginx-balancer-local:
     container_name: nginx-balancer-local
-    image: nginx:1.29.1
+    image: nginx:1.29.2
     volumes:
       - /docker/nginx-balancer-local/nginx.conf:/etc/nginx/nginx.conf
       - /docker/nginx-balancer-local/sites-enabled:/etc/nginx/sites-enabled
