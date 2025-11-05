@@ -111,7 +111,7 @@ services:
     restart: 'unless-stopped'
 
   flaresolverr:
-    image: flaresolverr/flaresolverr:v3.4.2
+    image: flaresolverr/flaresolverr:v3.4.4
     container_name: flaresolverr
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-info}
