@@ -2,7 +2,7 @@ version: "3"
 
 services:
   couchdb:
-    image: couchdb:3.5.0
+    image: couchdb:3.5.1
     container_name: couchdb
     environment:
       - COUCHDB_USER=${DB_USERNAME}  #Please change as you like.
