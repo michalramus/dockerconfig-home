@@ -2,7 +2,7 @@ version: '3'
 services:
   mariadb:
       container_name: mariadb
-      image: mariadb:11.8.4-ubi9
+      image: mariadb:11.8.5-ubi9
       restart: unless-stopped
       environment:
         MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
