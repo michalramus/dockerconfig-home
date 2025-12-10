@@ -19,6 +19,13 @@ services:
       - /docker/storage/immich:/usr/src/app/upload
       - /mnt/zdjecia:/mnt/zdjecia:ro
       - /etc/localtime:/etc/localtime:ro
+    labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.immich-server.rule=Host(`immich.ramus.ovh`)"
+          - "traefik.http.routers.immich-server.entrypoints=websecure"
+          - "traefik.http.routers.immich-server.tls=true"
+          - "traefik.http.routers.immich-server.tls.certresolver=letencrypt"
+          - "traefik.http.services.immich-server.loadbalancer.server.port=2883"
     environment:
       DB_DATABASE_NAME: ${DB_DATABASE_NAME}
       DB_USERNAME: ${DB_USERNAME}
