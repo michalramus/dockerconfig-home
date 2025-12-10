@@ -25,7 +25,7 @@ services:
           - "traefik.http.routers.immich-server.entrypoints=websecure"
           - "traefik.http.routers.immich-server.tls=true"
           - "traefik.http.routers.immich-server.tls.certresolver=letencrypt"
-          - "traefik.http.services.immich-server.loadbalancer.server.port=2883"
+          - "traefik.http.services.immich-server.loadbalancer.server.port=2283"
     environment:
       DB_DATABASE_NAME: ${DB_DATABASE_NAME}
       DB_USERNAME: ${DB_USERNAME}
