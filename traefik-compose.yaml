@@ -7,6 +7,10 @@ services:
       - no-new-privileges:true
     environment:
       - TZ=Europe/Warsaw # Change this to your timezone
+      - OVH_APPLICATION_KEY=${OVH_APPLICATION_KEY}
+      - OVH_APPLICATION_SECRET=${OVH_APPLICATION_SECRET}
+      - OVH_CONSUMER_KEY=${OVH_CONSUMER_KEY}
+      - OVH_ENDPOINT=${OVH_ENDPOINT}
     networks:
       nginx-bridge:
     ports:
