@@ -1,0 +1,17 @@
+services:
+  immich-frame:
+    image: ghcr.io/immichframe/immichframe:v1.0.33.0
+    container_name: immich-frame
+    tty: true
+    environment:
+      TZ: "Europe/Warsaw"
+    volumes:
+      - /docker/immich-frame/config:/app/Config
+    networks:
+      nginx-bridge:
+    restart: always
+ 
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
