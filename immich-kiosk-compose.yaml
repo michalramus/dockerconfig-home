@@ -10,6 +10,9 @@ services:
       - /docker/immich-kiosk/config:/config
       # - ./custom.css:/custom.css
       # - ./offline-assets:/offline-assets
+    networks:
+      nginx-bridge:
+      
     restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://immich-kiosk:3000/health"]
@@ -17,3 +20,7 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
