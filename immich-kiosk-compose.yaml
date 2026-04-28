@@ -1,6 +1,6 @@
 services:
   immich-kiosk:
-    image: ghcr.io/damongolding/immich-kiosk:0.36.3
+    image: ghcr.io/damongolding/immich-kiosk:0.37.0
     container_name: immich-kiosk
     tty: true
     environment:
