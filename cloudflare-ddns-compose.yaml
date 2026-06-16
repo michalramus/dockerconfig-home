@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   cloudflare-ddns:
-    image: timothyjmiller/cloudflare-ddns@sha256:6b6a1be7a0e6e48fb48e17d710433fd9728266a490e98c92e24f21d70af02e19
+    image: timothyjmiller/cloudflare-ddns@sha256:0f2434483437d080ac95e91b41a0aaa98b89ff2d53506980daa40eecf52cc9db
     container_name: cloudflare-ddns
     security_opt:
       - no-new-privileges:true
