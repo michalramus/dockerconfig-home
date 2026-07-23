@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
 
   paperless:
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.20.15
+    image: ghcr.io/paperless-ngx/paperless-ngx:3.0.0
     container_name: paperless
     depends_on:
       - redis
@@ -27,6 +27,7 @@ services:
       #- ./consume:/usr/src/paperless/consume     # paperless consumer directory path
     environment:
       PAPERLESS_REDIS: redis://redis:6379
+      PAPERLESS_DBENGINE: postgresql
       PAPERLESS_DBHOST: ${DB_HOSTNAME}
       PAPERLESS_DBPORT: ${DB_PORT}
       PAPERLESS_DBNAME: ${DB_DATABASE_NAME}
@@ -42,6 +43,7 @@ services:
       PAPERLESS_OCR_LANGUAGES: pol eng
       PAPERLESS_FILENAME_FORMAT: "{{ created_year }}/{{ correspondent }}/{{ title }} {{ tag_list }}"
       PAPERLESS_OCR_USER_ARGS: '{"continue_on_soft_render_error": true}'
+      PAPERLESS_CONSUMER_DELETE_DUPLICATES: true
       #The UID and GID of the user used to run paperless in the container. Set this
       # to your UID and GID on the host so that you have write access to the
       # consumption directory.
