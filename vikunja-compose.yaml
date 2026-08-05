@@ -3,7 +3,7 @@ services:
     image: vikunja/vikunja:2.5.0
     container_name: vikunja
     environment:
-      VIKUNJA_SERVICE_PUBLICURL: http://vikunja.ramus.ovh
+      VIKUNJA_SERVICE_PUBLICURL: https://vikunja.ramus.ovh
       VIKUNJA_DATABASE_HOST: ${DB_HOSTNAME}
       VIKUNJA_DATABASE_USER: ${DB_USER}
       VIKUNJA_DATABASE_PASSWORD: ${DB_PASSWORD}
