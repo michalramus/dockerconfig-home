@@ -1,0 +1,22 @@
+services:
+  vikunja:
+    image: vikunja/vikunja:2.5.0
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://vikunja.ramus.ovh
+      VIKUNJA_DATABASE_HOST: ${DB_HOSTNAME}
+      VIKUNJA_DATABASE_USER: ${DB_USER}
+      VIKUNJA_DATABASE_PASSWORD: ${DB_PASSWORD}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_DATABASE: ${DB_DATABASE_NAME}
+      VIKUNJA_SERVICE_SECRET: ${SECRET}
+    volumes:
+      - /docker/vikunja:/app/vikunja/files
+   networks:
+    nginx-bridge:
+  
+    restart: unless-stopped
+
+networks:
+  nginx-bridge:
+    name: nginx-bridge
+    external: true
