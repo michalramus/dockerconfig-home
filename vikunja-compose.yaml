@@ -10,6 +10,7 @@ services:
       VIKUNJA_DATABASE_TYPE: postgres
       VIKUNJA_DATABASE_DATABASE: ${DB_DATABASE_NAME}
       VIKUNJA_SERVICE_SECRET: ${SECRET}
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: false
     volumes:
       - /docker/storage/vikunja:/app/vikunja/files
     networks:
