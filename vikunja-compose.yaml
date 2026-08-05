@@ -10,7 +10,7 @@ services:
       VIKUNJA_DATABASE_DATABASE: ${DB_DATABASE_NAME}
       VIKUNJA_SERVICE_SECRET: ${SECRET}
     volumes:
-      - /docker/vikunja:/app/vikunja/files
+      - /docker/storage/vikunja:/app/vikunja/files
    networks:
     nginx-bridge:
   
