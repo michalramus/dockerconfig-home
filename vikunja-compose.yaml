@@ -1,4 +1,3 @@
-version: '3'
 services:
   vikunja:
     image: vikunja/vikunja:2.5.0
@@ -12,9 +11,8 @@ services:
       VIKUNJA_SERVICE_SECRET: ${SECRET}
     volumes:
       - /docker/storage/vikunja:/app/vikunja/files
-   networks:
-    nginx-bridge:
-  
+    networks:
+      - nginx-bridge
     restart: unless-stopped
 
 networks:
