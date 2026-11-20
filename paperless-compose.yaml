@@ -52,7 +52,7 @@ services:
     restart: unless-stopped
 
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:9.7
+    image: docker.io/gotenberg/gotenberg:9.9
     container_name: paperless-gotenberg
     networks:
       paperless-bridge:
